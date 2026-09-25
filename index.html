@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restaurante</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1A1714;
+    --card: #221D18;
+    --accent: #C9A227;
+    --text: #F2EDE4;
+    --text-dim: #B8AFA2;
+    --border: #35302A;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Work Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 32px 16px 48px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  header h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 2.1rem;
+    margin: 0 0 6px;
+  }
+
+  header p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  section {
+    margin-bottom: 24px;
+  }
+
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin: 0 0 12px;
+  }
+
+  .reserva {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+  }
+
+  .reserva label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 4px;
+    margin-top: 14px;
+  }
+
+  .reserva label:first-of-type { margin-top: 0; }
+
+  .reserva input {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--text);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1rem;
+    padding: 10px 12px;
+  }
+
+  .reserva input:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }
+
+  .reserva button {
+    width: 100%;
+    margin-top: 18px;
+    background: var(--accent);
+    color: #1A1714;
+    border: none;
+    border-radius: 3px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 13px;
+    cursor: pointer;
+  }
+
+  .reserva button:hover { opacity: 0.9; }
+
+  .horarios ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .horarios li {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    padding: 8px 0;
+  }
+
+  .horarios li span:last-child { color: var(--text); }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .links a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 13px;
+    font-size: 0.95rem;
+  }
+
+  .links a:hover { border-color: var(--accent); }
+
+  footer {
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    margin-top: 28px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .card { animation: fade 0.4s ease-out; }
+  }
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <header>
+    <h1 id="nombreNegocio">Nombre del Restaurante</h1>
+    <p id="tagline">Cocina de estación, ambiente de barrio</p>
+  </header>
+
+  <section class="reserva">
+    <h2>Reservar una mesa</h2>
+    <form id="reservaForm">
+      <label for="fecha">Fecha</label>
+      <input type="date" id="fecha" required>
+
+      <label for="hora">Hora</label>
+      <input type="time" id="hora" required>
+
+      <label for="personas">Cantidad de personas</label>
+      <input type="number" id="personas" min="1" value="2" required>
+
+      <button type="submit">Reservar por WhatsApp</button>
+    </form>
+  </section>
+
+  <section class="horarios">
+    <h2>Horarios</h2>
+    <ul>
+      <li><span>Lun a Vie</span><span>12:00–15:00 / 20:00–00:00</span></li>
+      <li><span>Sáb y Dom</span><span>12:00–00:00</span></li>
+    </ul>
+  </section>
+
+  <section class="links">
+    <a id="linkMenu" href="#" target="_blank">Ver el menú</a>
+    <a id="linkReseña" href="#" target="_blank">Dejar una reseña</a>
+    <a id="linkInstagram" href="#" target="_blank">Instagram</a>
+    <a id="linkWhatsapp" href="#" target="_blank">Escribinos por WhatsApp</a>
+  </section>
+
+  <footer>Powered by tarjeta NFC</footer>
+</div>
+
+<script>
+  /* ======================================================
+     CONFIGURACIÓN — Editar esto para cada cliente nuevo
+     ====================================================== */
+  const CONFIG = {
+    nombreNegocio: "Nombre del Restaurante",
+    tagline: "Cocina de estación, ambiente de barrio",
+    whatsappNumero: "5491112345678", // sin +, sin espacios, con código de país y de área
+    menuUrl: "https://ejemplo.com/menu.pdf",
+    reseñaGoogleUrl: "https://g.page/r/EJEMPLO/review",
+    instagramUrl: "https://instagram.com/ejemplo",
+    horarios: [
+      { dias: "Lun a Vie", horas: "12:00–15:00 / 20:00–00:00" },
+      { dias: "Sáb y Dom", horas: "12:00–00:00" }
+    ]
+  };
+  /* ====================================================== */
+
+  document.getElementById('nombreNegocio').textContent = CONFIG.nombreNegocio;
+  document.title = CONFIG.nombreNegocio;
+  document.getElementById('tagline').textContent = CONFIG.tagline;
+  document.getElementById('linkMenu').href = CONFIG.menuUrl;
+  document.getElementById('linkReseña').href = CONFIG.reseñaGoogleUrl;
+  document.getElementById('linkInstagram').href = CONFIG.instagramUrl;
+  document.getElementById('linkWhatsapp').href = `https://wa.me/${CONFIG.whatsappNumero}`;
+
+  // Pinta los horarios dinámicamente
+  const horariosList = document.querySelector('.horarios ul');
+  horariosList.innerHTML = CONFIG.horarios
+    .map(h => `<li><span>${h.dias}</span><span>${h.horas}</span></li>`)
+    .join('');
+
+  // No permite elegir una fecha pasada
+  document.getElementById('fecha').min = new Date().toISOString().split('T')[0];
+
+  // Botón de reserva → arma el mensaje y abre WhatsApp
+  document.getElementById('reservaForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const fecha = document.getElementById('fecha').value;
+    const hora = document.getElementById('hora').value;
+    const personas = document.getElementById('personas').value;
+
+    const fechaTexto = new Date(fecha + 'T00:00:00').toLocaleDateString('es-AR', {
+      day: 'numeric', month: 'long', year: 'numeric'
+    });
+
+    const mensaje = `Hola! Quiero reservar una mesa para ${personas} persona(s) el ${fechaTexto} a las ${hora} hs.`;
+    const url = `https://wa.me/${CONFIG.whatsappNumero}?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, '_blank');
+  });
+</script>
+
+</body>
+</html>
